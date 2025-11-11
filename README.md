@@ -1,4 +1,115 @@
 ## Apuntes de Markown, Github y HTML- Alexandra Rivas
+
+>## Github
+### 1. Creación del Repositorio en GitHub
+
+Para comenzar a gestionar tu proyecto, dirígete a la pestaña **"Repositories"** en tu perfil de GitHub y haz clic en el botón verde **"New"** (Nuevo).
+
+Esto te permite crear un espacio de almacenamiento remoto para tu proyecto HTML. Una vez creado, obtendrás una URL única que necesitarás para conectar y sincronizar los archivos desde tu computadora.
+
+![alt text](./imagenes/img_github/creacion_repo.png "Imagen de loro de ejemplo")  
+
+
+### 2. Configuración y Finalización del Repositorio
+
+Después de hacer clic en "New", hay que rellenar unos datos importantes para dejar el repositorio listo:
+
+* **Repository name:** Ponle un nombre claro a tu repositorio (lo mejor es usar guiones bajos `_` o guiones `-` en lugar de espacios).
+* **Description (Opcional):** Una descripción corta ayuda a saber de qué va el proyecto.
+* **Visibility:** Decide si quieres que sea **Public** (visible para todos) o **Private** (solo para ti y quien tú elijas).
+* Para terminar, simplemente haz clic en el botón verde **"Create repository"** y ya tendrás tu repositorio remoto creado.
+![alt text](./imagenes/img_github/repo_creado.png "Imagen de loro de ejemplo")
+
+### 3. Obtener la URL de Clonación
+
+Ahora que el repositorio ya está listo en GitHub, necesitamos copiar su dirección para empezar a trabajar en nuestra máquina local.
+
+En la página principal de tu repositorio, tienes que buscar y hacer clic en el botón verde que dice **"<> Code"** (Código). Esto abrirá un pequeño menú desplegable donde encontrarás la **URL HTTPS** que usaremos en la terminal para clonar el repositorio.
+
+![alt text](./imagenes/img_github/apartado_code.png "Imagen de loro de ejemplo")
+
+
+### 4. Copiar la URL HTTPS
+
+Dentro del menú que aparece (al hacer clic en "Code"), asegúrate de que esté seleccionada la opción **HTTPS**.
+
+* Copia la dirección completa que aparece en el recuadro. Esta es la que te permite traer el repositorio a tu máquina usando Git.
+
+![alt text](./imagenes/img_github/enlace_para_clonar.png "Imagen de loro de ejemplo")
+
+### 5. Preparar la Carpeta Local
+
+Antes de clonar, debes decidir **dónde** quieres guardar el proyecto en tu computadora.
+
+* Usa el explorador de archivos para navegar hasta la carpeta que elijas (en este caso, la carpeta **"Repositorios-GS"**).
+* Una vez dentro de esa carpeta en el explorador, deberás abrir la terminal  **en esa misma ubicación** para poder ejecutar el comando de clonación.
+
+![alt text](./imagenes/img_github/carpeta_clonacion.png "Imagen de loro de ejemplo")
+
+### 6. Ejecutar la Clonación 
+
+Con la terminal abierta en la carpeta correcta, ya puedes usar el comando **git clone** seguido de la URL que copiaste de GitHub.
+Al ejecutarlo, la terminal descargará el repositorio (junto con el README.md que creamos) y se creará una nueva carpeta con el nombre del proyecto dentro de tu carpeta local.
+
+![alt text](./imagenes/img_github/listo_clonacion.png "Imagen de loro de ejemplo") 
+
+
+### 7. Resultado: Repositorio Listo en Local
+
+Una vez que el comando **git clone** ha finalizado, verás que se ha creado una nueva carpeta con el nombre del repositorio (**repositorio_prueba**) dentro de la ubicación que elegiste (la carpeta **Repositorios-GS**).
+
+* **Esta es la carpeta de tu proyecto local.** Ya puedes entrar en ella y haremos las moficaciones en el paso siguiente.
+![alt text](./imagenes/img_github/repo_en_carpeta.png "Imagen de loro de ejemplo")
+
+### 8. Abrir la Carpeta en el Editor
+
+Una vez que la carpeta del repositorio (**repositorio_prueba**) ya está en tu máquina, toca abrirla en tu editor de código (VS Code) para empezar a trabajar.
+
+* Simplemente usa la opción **"Open Folder"** o arrastra la nueva carpeta **repositorio_prueba** a la ventana de VS Code.
+
+Desde aquí ya puedes crear o mover tus archivos HTML, CSS, etc., dentro de esa carpeta.
+
+![alt text](./imagenes/img_github/vsc_colocar_repo.png "Imagen de loro de ejemplo")
+
+### 9. Crear el Contenido HTML
+
+Una vez que la carpeta del proyecto está abierta en VS Code, puedes crear tus archivos. El ejemplo muestra que hemos añadido el archivo **index.html`** dentro de la carpeta clonada.
+
+* Ahora que hay contenido nuevo, toca usar los comandos de Git para guardar y enviar este trabajo a GitHub.
+
+![alt text](./imagenes/img_github/contenido_repo_html.png "Imagen de loro de ejemplo")
+
+### 10. Archivos Listos en la Carpeta
+
+Si revisas la carpeta del repositorio (**repositorio_prueba**) en tu explorador, verás que el archivo **index.html** ya está guardado ahí.
+
+* Es crucial que los archivos que quieres subir estén dentro de esta carpeta para que Git los pueda rastrear. Ahora sí, vamos a la terminal para enviarlos, habrá que entrar con la ruta del repositorio.
+
+![alt text](./imagenes/img_github/contenido_repo_carpeta.png "Imagen de loro de ejemplo")
+
+
+### 11. Ejecución de los Comandos Clave
+
+Una vez dentro de la ruta donde se encuentra el repositorio, ejecutas los comandos en este orden para subir tus archivos a GitHub:
+
+1.  **git init**: Reinicia o verifica la existencia del repositorio de Git en la carpeta 
+2.  **git add .**: Prepara todos los archivos que has creado o modificado.
+3.  **git commit -m "Mensaje"**: Guarda una versión de tu trabajo y el comentario que has añadido dentro de las comillas. 
+4.  **git push**: Envía todo el trabajo guardado al repositorio de GitHub.
+
+Cuando el push termina y ves mensajes de "done", el archivo ya está subido a la plataforma.
+![alt text](./imagenes/img_github/comandos_subir_repo.png "Imagen de loro de ejemplo")  
+
+### 12. Confirmación en GitHub
+
+Para verificar que el **git push** funcionó, solo tienes que actualizar la página de tu repositorio en GitHub.
+
+* Verás que el archivo **index.html** aparece en la lista de archivos.
+* El contador de **Commits** (**2 Commits**) habrá aumentado, confirmando que se ha guardado correctamente en el historial del proyecto.
+![alt text](./imagenes/img_github/commit_listo.png "Imagen de loro de ejemplo")   
+
+-----
+
 >## Markdown
 ## Introducción a Markdown
 
