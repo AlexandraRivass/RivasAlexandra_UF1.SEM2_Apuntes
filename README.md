@@ -1,6 +1,6 @@
-## Apuntes de Markown, Github y HTML- Alexandra Rivas
+## Apuntes de Markown, Github, Git y HTML- Alexandra Rivas
 
->## Github
+>## Github y Git
 ### 1. Creación del Repositorio en GitHub
 
 Para comenzar a gestionar tu proyecto, dirígete a la pestaña **"Repositories"** en tu perfil de GitHub y haz clic en el botón verde **"New"** (Nuevo).
@@ -296,9 +296,229 @@ console.log("Hello world!")
 
 ------
 
+># Html
+## ¿Qué es HTML?
+HTML, cuyas siglas significan Lenguaje de Marcado de Hipertexto (Hypertext Markup Languaje), es un lenguaje bastante simple. Consiste en distintos elementos que utilizamos para estructurar una página web.
+![alt text](./imagenes/img_html/html_quèes.png "Imagen html ejemplo")   
 
+----
+## Estructura básica de un documento HTML
+Todo documento HTML sigue una estructura similar. A continuación se muestra un ejemplo básico:
 
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primera página web</title>
+</head>
+<body>
+    <h1>¡Hola, mundo!</h1>
+    <p>Este es mi primer documento HTML.</p>
+</body>
+</html>
+```
+- `<!DOCTYPE html>` - Indica que el documento está escrito en **HTML5**.  
+- `<html>` - Es la **etiqueta raíz** que contiene todo el contenido de la página.  
+- `<head>` - Contiene **información no visible** directamente (metadatos, título, estilos, etc.).  
+- `<body>` - Contiene **todo el contenido visible** para el usuario (textos, imágenes, botones, etc.).
 
+----
+## La Cabecera (`<head>`)
+- La cabecera contiene información **sobre el documento HTML** y su **configuración**.
+- La mayoría de esta información **no se muestra** en la página web (excepto el título).
+- Elementos principales dentro de `<head>`:
+  - `<title>`: define el **título de la página**, que aparece en la **pestaña del navegador** y al **guardar en favoritos**.
+  - `<meta>`: agrega **metadatos**, como charset, descripción o autor.
+  - `<link>`: enlaza **recursos externos**, como hojas de estilo CSS.
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Página Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>¡Hola, mundo!</h1>
+  <p>Este es un ejemplo de página HTML completa.</p>
+</body>
+</html>
+```
+__Se visualiza así:__
 
+![alt text](./imagenes/img_html/ejemplo_head.png "Imagen html ejemplo")  
 
+-----
 
+## BODY  
+Esta es la etiqueta más importante, en ella es donde pondremos todo lo que va a salir por pantalla en nuestra web.  
+Todo el contenido visible (textos, imágenes, tablas, formularios, etc.) se coloca dentro del `<body>`.
+- `<HTML>`  
+  Etiqueta que indica que estamos creando una página web.  
+  Todo el contenido del documento debe ir dentro de esta etiqueta.
+
+- `<HEAD>`  
+  Etiqueta de apertura de la cabecera.  
+  En esta parte se incluye información sobre el documento, como el título, autor, enlaces o estilos.  
+  Lo único visible en la página es el título, que aparecerá en la pestaña del navegador.
+
+- `</HEAD>`  
+  Etiqueta de cierre de la cabecera.
+
+- `<BODY>`  
+  Etiqueta de apertura del cuerpo.  
+  Aquí va el contenido de la página, que será lo que se vea en el navegador (textos, imágenes, enlaces, etc.).
+
+- `</BODY>`  
+  Etiqueta de cierre del cuerpo.
+
+- `</HTML>`  
+  Etiqueta de cierre del documento.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de Body</title>
+</head>
+<body>
+    <h1>Contenido dentro del BODY</h1>
+    <p>Este texto se muestra porque está dentro de la etiqueta body.</p>
+    <p>Aquí podemos poner más elementos, como imágenes o enlaces.</p>
+</body>
+</html>
+```
+
+__Se visualiza así:__
+
+![alt text](./imagenes/img_html/ejemplo_body.png "Imagen html ejemplo")   
+
+---
+## ¿Qué son los elementos HTML?
+
+El elemento normalmente comienza con una etiqueta de apertura, la cual consiste en el nombre del elemento. Se rodean (Es contenida) por corchetes angulares de apertura y cierre. La etiqueta de apertura indica dónde comienza el elemento.
+
+De igual manera que la etiqueta de apertura, la etiqueta de cierre también está contenida por corchetes angulares de apertura y cierre. Pero también incluye una barra antes del nombre del elemento.
+
+Todo lo que está dentro de las etiquetas de apertura y cierre es el contenido.
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de Párrafos</title>
+</head>
+<body>
+    <p>This is a paragraph.</p>
+</body>
+</html>
+```
+__Se visualiza así:__
+
+![alt text](./imagenes/img_html/ejemplo_elementos.png "Imagen html ejemplo")   
+
+----
+
+##  Encabezados `<h1>` a `<h6>`
+Estas seis etiquetas diferentes se utilizan para hacer encabezados, cada una es mayor que la siguiente, siendo la más pequeña la H6.
+Solo se les puede poner un atributo y es la alineación del texto.
+Se usan para títulos o subtítulos dentro de una página web.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de Encabezados</title>
+</head>
+<body>
+    <h1>Encabezado H1 - Título principal</h1>
+    <h2>Encabezado H2 - Subtítulo</h2>
+    <h3>Encabezado H3 - Sección secundaria</h3>
+    <h4>Encabezado H4 - Subnivel de detalle</h4>
+    <h5>Encabezado H5 - Texto destacado pequeño</h5>
+    <h6>Encabezado H6 - Encabezado más pequeño</h6>
+</body>
+</html>
+```
+
+__Se visualiza así:__
+
+![alt text](./imagenes/img_html/encabezado_ejemplo.png "Imagen html ejemplo")  
+
+----
+
+## Listas
+
+En HTML existen **distintos tipos de listas** para organizar información:  
+
+## 1. Lista desordenada (`<ul>`)
+- Lista de elementos **sin un orden específico**.  
+- **Ejemplo:**
+```html
+<ul>
+  <li>Manzanas</li>
+  <li>Naranjas</li>
+  <li>Plátanos</li>
+</ul>
+```
+## Lista ordenada (`<ol>`)
+- Lista de elementos con orden numérico o alfabético.
+- **Ejemplo:**
+```html
+<ol>
+  <li>Preparar ingredientes</li>
+  <li>Cocinar</li>
+  <li>Servir</li>
+</ol>
+```
+__Se visualiza así:__
+
+![alt text](./imagenes/img_html/ejemplo_lista.png "Imagen html ejemplo")  
+
+----
+## Elementos de sección
+Estos elementos se utilizan para organizar el contenido en diferentes secciones. Por lo general son muy obvios, por ejemplo<header> representa a un grupo de la sección de introducción y navegación, <nav> representa la sección que contiene los enlaces de navegación, etcétera.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Elementos de Sección</title>
+</head>
+<body>
+
+<header>
+  <h1>Mi Sitio Web</h1>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="inicio">
+    <h2>Bienvenida</h2>
+    <p>Contenido introductorio de la página.</p>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <p>Ofrecemos desarrollo web y diseño gráfico.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
+```
