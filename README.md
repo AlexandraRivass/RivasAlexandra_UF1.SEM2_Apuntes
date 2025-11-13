@@ -423,20 +423,33 @@ __Se visualiza así:__
 ----
 
 ## Comentarios en Html
-# Comentarios en HTML
-
 Los **comentarios** en HTML se utilizan para **incluir notas dentro del código**.  
 Sirven para **explicar la lógica**, **dar instrucciones** o simplemente **organizar y clarificar** el código, sin afectar la visualización en el navegador.
-
----
-
-## 📌 Sintaxis de los comentarios en HTML
-
-Los comentarios se escriben de la siguiente manera:
-
 ```html
 <!-- Este es un comentario en HTML -->
+```
+ ----
+ 
+ ## Organización de los archivos
+ Organizar correctamente los archivos y carpetas de un proyecto web es **fundamental** para mantener el código limpio, fácil de entender y escalable.  
+Una buena estructura facilita la colaboración y evita confusiones.
 
+```html
+.git
+readme.md
+imagenes
+|--- img_html
+|--- |--- ejemplo_elementos.png
+|--- |--- ejemplo_formulario.png
+|--- |--- ...
+|--- img_markdown
+|--- |--- ejemplo_lista.png
+|--- |--- ejemplo_enlace_imagen.png
+|--- |--- ...
+|--- img_github
+|--- |--- ...
+
+```
 ----
 
 ##  Encabezados `<h1>` a `<h6>`
