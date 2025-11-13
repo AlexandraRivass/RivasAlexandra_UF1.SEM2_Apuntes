@@ -422,6 +422,23 @@ __Se visualiza así:__
 
 ----
 
+## Comentarios en Html
+# Comentarios en HTML
+
+Los **comentarios** en HTML se utilizan para **incluir notas dentro del código**.  
+Sirven para **explicar la lógica**, **dar instrucciones** o simplemente **organizar y clarificar** el código, sin afectar la visualización en el navegador.
+
+---
+
+## 📌 Sintaxis de los comentarios en HTML
+
+Los comentarios se escriben de la siguiente manera:
+
+```html
+<!-- Este es un comentario en HTML -->
+
+----
+
 ##  Encabezados `<h1>` a `<h6>`
 Estas seis etiquetas diferentes se utilizan para hacer encabezados, cada una es mayor que la siguiente, siendo la más pequeña la H6.
 Solo se les puede poner un atributo y es la alineación del texto.
@@ -481,7 +498,16 @@ __Se visualiza así:__
 
 ----
 ## Elementos de sección
-Estos elementos se utilizan para organizar el contenido en diferentes secciones. Por lo general son muy obvios, por ejemplo<header> representa a un grupo de la sección de introducción y navegación, <nav> representa la sección que contiene los enlaces de navegación, etcétera.
+| Elemento | Descripción |
+|-----------|-------------|
+| `<div>` | Contenedor genérico sin significado semántico. Se utiliza para agrupar contenido o aplicar estilos mediante CSS. |
+| `<span>` | Contenedor en línea sin significado semántico. Se usa para aplicar estilos o scripts a partes específicas del texto. |
+| `<header>` | Representa el encabezado de una página o sección. Puede incluir el logotipo, título o menús de navegación. |
+| `<footer>` | Representa el pie de página de una página o sección. Suele contener información de contacto o derechos de autor. |
+| `<nav>` | Define una sección con enlaces de navegación dentro del sitio web. |
+| `<main>` | Contiene el contenido principal de la página, excluyendo encabezado, navegación y pie de página. |
+| `<section>` | Define una sección temática dentro del documento, con su propio encabezado o contenido relacionado. |
+
 
 ```html
 <!DOCTYPE html>
@@ -522,3 +548,290 @@ Estos elementos se utilizan para organizar el contenido en diferentes secciones.
 </body>
 </html>
 ```
+
+## Elementos multimedia y enlaces
+
+En HTML, las **imágenes** y los **enlaces** son elementos esenciales para enriquecer el contenido visual y la navegación de una página web.
+
+- El elemento `<img>` se usa para **mostrar imágenes** dentro de un documento HTML.  
+- El elemento `<a>` (anchor o ancla) se usa para **crear enlaces** que permiten navegar entre páginas o recursos.
+
+| Elemento | Descripción |
+|-----------|-------------|
+| `<img>` | Muestra una imagen en la página. No tiene etiqueta de cierre. Requiere el atributo `src` para indicar la ruta de la imagen y `alt` para describirla. |
+| `<a>` | Crea un hipervínculo o enlace. Usa el atributo `href` para definir la dirección a la que llevará el clic. Puede enlazar a otras páginas, secciones, archivos o direcciones externas. |
+
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Imágenes y Enlaces en HTML</title>
+</head>
+<body>
+
+  <h1>Ejemplo de Imágenes y Enlaces</h1>
+
+  <h2> Imagen</h2>
+  <p>Ejemplo de cómo insertar una imagen en HTML:</p>
+  <img src="./imagenes/img_html/ejemplo_imagen.jpg" alt="Ejemplo de imagen">
+
+  <h2> Enlace</h2>
+  <p>Ejemplo de cómo crear un enlace en HTML:</p>
+  <a href="https://www.google.com" target="_blank">Visitar Google</a>
+
+  <h2> Imagen dentro de un enlace</h2>
+  <p>También puedes usar una imagen como enlace:</p>
+  <a href="https://www.wikipedia.org" target="_blank">
+    <img src="./imagenes/img_html/ejemplo_imagen.jpg" alt="Ir a Wikipedia">
+  </a>
+</body>
+</html> 
+```
+__Se visualiza así:__
+
+![alt text](./imagenes/img_html/ejemplo_enlace_imagen.png "Imagen html ejemplo")  
+---
+# Tablas en HTML
+
+Las **tablas** en HTML se utilizan para **organizar datos en filas y columnas**.  
+Son muy útiles para mostrar información estructurada como listados, horarios, resultados, precios, etc.
+
+El elemento principal es `<table>`, que contiene filas (`<tr>`) y celdas (`<td>`).  
+También se pueden usar etiquetas como `<th>` para encabezados y `<caption>` para agregar un título descriptivo.
+
+---
+
+##  Tabla de Elementos de Tabla en HTML
+
+| Elemento | Descripción |
+|-----------|-------------|
+| `<table>` | Define el inicio y fin de una tabla. Es el contenedor principal. |
+| `<tr>` | Representa una fila dentro de la tabla. |
+| `<th>` | Define una celda de **encabezado**. El texto suele mostrarse en **negrita** y **centrado** por defecto. |
+| `<td>` | Define una celda de **datos** dentro de una fila. |
+| `<caption>` | Añade un título o descripción breve a la tabla. Es opcional y se coloca justo después de `<table>`. |
+| `<thead>` | Agrupa las filas de encabezado de la tabla. |
+| `<tbody>` | Agrupa las filas del cuerpo principal de la tabla. |
+| `<tfoot>` | Agrupa las filas del pie de la tabla, normalmente para totales o resúmenes. |
+
+
+## Tabla sobre `rowspan` y `colspan`
+
+| Atributo | Descripción | Resultado |
+|-----------|-------------|------------|
+| `rowspan` | Une **varias filas verticalmente** en una sola celda. | La celda ocupa el espacio de varias filas. |
+| `colspan` | Une **varias columnas horizontalmente** en una sola celda. | La celda ocupa el espacio de varias columnas. |
+
+
+```html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tablas en HTML</title>
+  <style>
+    table { border-collapse: collapse; width: 60%; margin-bottom: 2rem; }
+   
+    th, td { border: 1px solid #333; padding: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Ejemplo de Tablas en HTML</h1>
+
+  <table><!--Tabla de elementos de tabla -->
+    <caption>Listado de Estudiantes</caption><!--Título de la tabla -->
+    <thead><!--Encabezado de la tabla -->
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Curso</th>
+      </tr>
+    </thead>
+    <tbody><!--Cuerpo de la tabla -->
+      <tr>
+        <td>Ana López</td>
+        <td>20</td>
+        <td>HTML Básico</td>
+      </tr>
+      <tr>
+        <td>Carlos Pérez</td>
+        <td rowspan="2">22</td> <!-- rowspan: ocupa varias filas ABAJO - ARRIBA-->
+        <td>CSS Avanzado</td>
+      </tr>
+      <tr>
+        <td>María Torres</td>
+        <td>JavaScript</td>
+      </tr>
+    </tbody> <!-- Cuerpo de la tabla -->
+    <tfoot><!--Pie de la tabla -->
+      <tr>
+        <td colspan="3">Total de estudiantes: 3</td><!-- colspan: ocupa varias columnas  IZQ - DER.-->
+      </tr>
+    </tfoot>
+  </table>
+
+</body>
+</html>
+```
+
+
+__Se visualiza así:__
+
+![alt text](./imagenes/img_html/ejeemplo_tablas.png "Imagen html ejemplo")  
+
+---
+# Formularios en HTML
+
+Los **formularios** en HTML se utilizan para **recoger información de los usuarios**, como nombres, correos, preferencias o comentarios.  
+Se componen de distintos campos de entrada y controles interactivos.
+
+El contenedor principal es `<form>`, dentro del cual se usan etiquetas como `<input>`, `<textarea>`, `<select>`, `<fieldset>`, `<legend>`, `<label>` y `<button>`.
+
+---
+
+## Tabla de Elementos de Formularios
+
+| Elemento | Descripción |
+|-----------|-------------|
+| `<form>` | Contenedor principal del formulario. Atributos importantes: `action` (archivo de destino), `method` (GET o POST), `target` (dónde abrir el resultado). |
+| `<label>` | Etiqueta asociada a un campo de entrada mediante el atributo `for`. Mejora accesibilidad y usabilidad. |
+| `<input>` | Campo de entrada de datos. Tipos más comunes: `text`, `email`, `password`, `number`, `radio`, `checkbox`, `submit`. |
+| `<textarea>` | Área de texto de varias líneas para comentarios o información extensa. |
+| `<select>` | Menú desplegable que permite seleccionar una opción. |
+| `<option>` | Define cada opción dentro de un `<select>`. |
+| `<fieldset>` | Agrupa campos relacionados dentro del formulario. |
+| `<legend>` | Título de un `<fieldset>`. |
+| `<button>` | Botón interactivo. `type="submit"` envía los datos del formulario. |
+| `name` | Identificador del campo que se enviará al servidor. |
+| `id` | Identificador único de un campo, usado para asociarlo con `<label>`. |
+| `value` | Valor que se enviará si el campo está seleccionado o enviado. |
+| `placeholder` | Texto que aparece dentro del campo antes de que el usuario escriba algo. |
+| `checked` | Atributo para indicar que un `radio` o `checkbox` está seleccionado por defecto. |
+| `required` | Hace que un campo sea obligatorio antes de enviar el formulario. |
+ ```html
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Contacto</title>
+    <style>
+        /* Estilo básico para mejor visualización */
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        fieldset { margin-bottom: 1rem; } /* Separa los grupos de campos */
+        label { display: inline-block; width: 120px; margin-bottom: 5px; } /* Etiquetas alineadas */
+        input, select, textarea { margin-bottom: 10px; } /* Espacio debajo de los campos */
+    </style>
+</head>
+<body>
+
+<h1>Formulario de Contacto</h1>
+
+<!--
+  <form> Contenedor principal del formulario
+  action -> archivo de destino donde se enviarán los datos
+  method -> cómo se envían los datos (GET o POST)
+-->
+<form action="procesar_contacto.html" method="POST">
+
+    <!-- Nombre completo -->
+    <label for="nombre">Nombre:</label> <!-- <label> indica a qué campo hace referencia -->
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    <!-- 
+      <input type="text"> campo de texto simple
+      id -> identificador único, usado con label
+      name -> nombre del campo para enviar al servidor
+      placeholder -> texto guía dentro del campo
+      required -> obliga al usuario a completarlo antes de enviar
+    -->
+    <br>
+
+    <!-- Correo electrónico -->
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+    <!--
+      type="email" valida que el usuario introduzca un email correcto
+    -->
+    <br>
+
+    <!-- Edad -->
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad" min="0" max="120">
+    <!--
+      type="number" permite solo números
+      min / max limitan los valores posibles
+    -->
+    <br>
+
+    <!-- Género con radio buttons -->
+    <fieldset> <!-- Agrupa elementos relacionados -->
+        <legend>Género</legend> <!-- Título del grupo de campos -->
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino</label>
+        <!-- type="radio" permite seleccionar solo una opción dentro de un mismo "name" -->
+
+        <input type="radio" id="femenino" name="genero" value="femenino">
+        <label for="femenino">Femenino</label>
+
+        <input type="radio" id="otro" name="genero" value="otro">
+        <label for="otro">Otro</label>
+    </fieldset>
+
+    <!-- Intereses con checkboxes -->
+    <fieldset>
+        <legend>Intereses</legend>
+        <input type="checkbox" id="noticias" name="intereses[]" value="noticias">
+        <label for="noticias">Noticias</label>
+        <!-- type="checkbox" permite seleccionar múltiples opciones
+             name="intereses[]" con [] indica que se enviarán como array al servidor -->
+
+        <input type="checkbox" id="deportes" name="intereses[]" value="deportes">
+        <label for="deportes">Deportes</label>
+
+        <input type="checkbox" id="tecnologia" name="intereses[]" value="tecnologia">
+        <label for="tecnologia">Tecnología</label>
+    </fieldset>
+
+    <!-- País usando select -->
+    <label for="pais">País:</label>
+    <select id="pais" name="pais">
+        <option value="espana">España</option>
+        <option value="mexico">México</option>
+        <option value="argentina">Argentina</option>
+    </select>
+    <!-- 
+      <select> crea un menú desplegable
+      <option> define las opciones posibles
+      value -> valor que se enviará al servidor si se selecciona
+    -->
+    <br>
+
+    <!-- Comentarios usando textarea -->
+    <label for="comentarios">Comentarios:</label><br>
+    <textarea id="comentarios" name="comentarios" rows="5" cols="40" placeholder="Escribe tus comentarios..."></textarea>
+    <!-- 
+      <textarea> permite escribir varias líneas de texto
+      rows y cols definen tamaño visible
+    -->
+    <br>
+
+    <!-- Botón para enviar -->
+    <button type="submit">Enviar</button>
+    <!-- 
+      <button> con type="submit" envía los datos del formulario
+      Se puede usar text o iconos dentro del botón
+    -->
+</form>
+
+</body>
+</html>
+ ```
+__Se visualiza así:__
+
+![alt text](./imagenes/img_html/ejemplo_formulario.png "Imagen html ejemplo")  
+
+---
+
