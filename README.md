@@ -1,6 +1,41 @@
-## Apuntes de Markown, Github, Git y HTML- Alexandra Rivas
+## Apuntes de Markown, Github, Git, HTML y CSS- Alexandra Rivas
 
->## Github y Git
+>## Git
+Git es un **Sistema de Control de Versiones** gratuito y de código abierto.
+
+* **¿Para qué sirve?** Git es como una máquina del tiempo para tu código. Te permite registrar cada cambio que haces en tu proyecto, de forma que puedes volver a versiones anteriores, ver quién hizo qué y trabajar en equipo sin sobrescribir el código de nadie.
+
+## 2.  Instalación de Git
+
+Para poder usar los comandos como `git clone` o `git push`, primero debemos instalar Git en tu sistema.
+El primer paso es ir al sitio web oficial de Git.
+
+* **Paso a seguir:** Busca **`git-scm.com`** en tu navegador.
+* En la página principal, verás la última versión disponible para descargar, lista para Windows (o el sistema operativo que uses).
+
+![alt text](./imagenes/img_git/paginaweb_git.png "Imagen de loro de ejemplo")  
+
+### Iniciar la Descarga (2 Opciones)
+
+Una vez en la página principal, tienes dos opciones para empezar a descargar el instalador:
+
+1.  Hacer clic directamente en el botón **"Download for Windows"** (o tu sistema operativo).
+2.  Hacer clic en la sección de **"Install"** para ver las opciones disponibles para todas las plataformas.
+
+![alt text](./imagenes/img_git/opciones_instalaciones.png "Imagen de loro de ejemplo")  
+
+### Elegir la Versión 
+
+Una vez que has hecho clic en "Install" o "Download", llegarás a la página de descargas.
+
+* Asegúrate de que la pestaña **Windows** (o tu sistema operativo) esté seleccionada.
+* Busca el enlace **"Click here to download"** o la versión que te convenga (normalmente la `x64 version of Git for Windows`), y haz clic para que el instalador (`.exe`) se guarde en tu ordenador.
+![alt text](./imagenes/img_git//windows_opciones.png "Imagen de loro de ejemplo") 
+
+
+----
+
+>## Github
 ### 1. Creación del Repositorio en GitHub
 
 Para comenzar a gestionar tu proyecto, dirígete a la pestaña **"Repositories"** en tu perfil de GitHub y haz clic en el botón verde **"New"** (Nuevo).
@@ -847,4 +882,5 @@ __Se visualiza así:__
 ![alt text](./imagenes/img_html/ejemplo_formulario.png "Imagen html ejemplo")  
 
 ---
+> # css
 

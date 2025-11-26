@@ -1,0 +1,18 @@
+        p
+        { color: rgb(255, 255, 255) !important;
+        font-size: 25px !important;
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+
+        }
+
+        h1, p{
+            color: rgb(160, 50, 50);
+        }
+
+        body {
+            color: aliceblue;
+            background-color: rgb(50, 25, 74);
+        
+        }
