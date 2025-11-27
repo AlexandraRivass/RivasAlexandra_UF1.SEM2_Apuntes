@@ -880,7 +880,80 @@ El contenedor principal es `<form>`, dentro del cual se usan etiquetas como `<in
 __Se visualiza así:__
 
 ![alt text](./imagenes/img_html/ejemplo_formulario.png "Imagen html ejemplo")  
+----
+># Validador HTML del W3C
 
----
+El Validador del W3C es la herramienta oficial para revisar tu código HTML y asegurar que cumple con los estándares web.
+
+### ¿Cómo funciona?
+
+1.  **Objetivo:** Su función es detectar errores (fallos graves) y advertencias (problemas menores) en tu código.
+2.  **Importancia:** Usarlo garantiza que tu página sea compatible con la mayoría de navegadores y que el código sea limpio y accesible.
+3.  **Resultado:** El objetivo es corregir todo hasta que la herramienta te muestre un resultado positivo (el "Green Pass").
+
+![alt text](./imagenes/img_html/validator_definicion.jpeg "Imagen html ejemplo")  
+
+-------
+
+### Página Web
+
+Puedes acceder y usar esta herramienta en línea a través de:
+
+* **URL:** `validator.w3.org`
+* **Opciones para validar:** Puedes pegar el código directamente, subir un archivo HTML o pegar la URL de una página ya publicada.
+
+#### Opciones de Validación Detalladas
+
+El Validador del W3C te da tres formas para que puedas revisar tu código HTML:
+
+1.  **Validate by URI:** Pegas la dirección (URL) de tu página web si ya la tienes subida a Internet.
+2.  **Validate by File Upload:** Subes tu archivo `index.html` (o el que quieras revisar) directamente desde tu computadora.
+3.  **Validate by Direct Input:** Copias y pegas el código HTML completo en el recuadro de texto que aparece en la página.
+
+![alt text](./imagenes/img_html/opciones_validator.png "Imagen html ejemplo")  
+
+### Comprobación de código
+
+Si has elegido la opción **"Validate by Direct Input"**, debes pegar tu código HTML completo en el recuadro que aparece.
+
+* En la imagen, se ve cómo se ha pegado el código de la página (incluyendo el `<!DOCTYPE html>`, `<html>`, `<body>`, etc.).
+* Una vez que el código está pegado, solo tienes que hacer clic en el botón **"Check"** para que la herramienta lo analice y te muestre los errores.
+
+![alt text](./imagenes/img_html/codigo_validator.png "Imagen html ejemplo")  
+
+-------- 
+
+### Resultado Final
+
+Después de hacer clic en "Check", el Validador revisa tu código y te muestra el resultado.
+
+* **La meta:** El objetivo es ver la barra verde que dice **"Document checking completed. No errors or warnings to show."**
+* **¿Qué significa?** Tu código HTML es **válido**; cumple con los estándares, es limpio y es compatible con la mayoría de los navegadores.
+
+![alt text](./imagenes/img_html/resultado_validacion.png "Imagen html ejemplo")  
+
+*(Si hubiese errores, aparecerían detallados en rojo para que puedas corregirlos línea por línea).*
+
+![alt text](./imagenes/img_html/error_validacion.png "Imagen html ejemplo")  
+
+
+------
 > # css
+### Que es css?
+Las siglas CSS (Cascading Style Sheets) significan «Hojas de estilo en cascada» y parten de un concepto simple pero muy potente: aplicar estilos (colores, formas, márgenes, etc...) a uno o varios documentos (generalmente documentos HTML, páginas webs) de forma automática y masiva.
 
+Se le denomina estilos en cascada porque se lee, procesa y aplica el código desde arriba hacia abajo (siguiendo patrones como herencia o cascada que trataremos más adelante) y en el caso de existir ambigüedad (código que se contradice), se siguen una serie de normas para resolver dicha ambigüedad.
+
+![alt text](./imagenes/img_css/definicion_css.jpg "Imagen html ejemplo") 
+
+------
+### ¿Por qué se usa CSS?
+Con el tiempo, separar el código hace que el proyecto sea **mucho más fácil de modificar y mantener**.
+
+* **HTML (Contenido):** Estos documentos solo deben incluir la **información y los datos** a transmitir (títulos, párrafos, imágenes, etc.).
+* **CSS (Presentación):** Estos documentos solo deben incluir los aspectos relacionados con el **estilo y diseño** (colores, fuentes, márgenes, formas, etc.).
+
+![alt text](./imagenes/img_css/utilidad_css.png "Imagen html ejemplo") 
+
+
+-----
