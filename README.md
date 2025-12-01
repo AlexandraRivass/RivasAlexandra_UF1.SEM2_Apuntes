@@ -33,7 +33,29 @@ Una vez que has hecho clic en "Install" o "Download", llegarás a la página de 
 ![alt text](./imagenes/img_git//windows_opciones.png "Imagen de loro de ejemplo") 
 
 
+### Ejecutar el Instalador 
+
+Una vez que has descargado el archivo `.exe`, ejecútalo.
+
+* **Si instalas por `winget`:** Verás cómo el proceso se inicia automáticamente desde PowerShell, y luego se abrirá la ventana gráfica del instalador.
+* **Si instalas por doble clic:** Aparecerá directamente la ventana **"Git 2.xx.0 Setup"**.
+
+![alt text](./imagenes/img_git/instalacion_git.png "Imagen de loro de ejemplo")
+
+En la ventana de instalación, verás la barra de progreso mientras el programa extrae los archivos necesarios para empezar la configuración.
+
 ----
+
+### 4. Verificar la Instalación 
+
+Una vez terminada la instalación, es importante verificar que Git esté listo para usarse, y ver la versión instalada.
+
+* En la terminal (ya sea PowerShell, CMD o Git Bash), ejecuta el siguiente comando:
+
+![alt text](./imagenes/img_git/version_git.png "Imagen de loro de ejemplo")
+
+
+-----
 
 >## Github
 ### 1. Creación del Repositorio en GitHub
@@ -907,7 +929,7 @@ Puedes acceder y usar esta herramienta en línea a través de:
 El Validador del W3C te da tres formas para que puedas revisar tu código HTML:
 
 1.  **Validate by URI:** Pegas la dirección (URL) de tu página web si ya la tienes subida a Internet.
-2.  **Validate by File Upload:** Subes tu archivo `index.html` (o el que quieras revisar) directamente desde tu computadora.
+2.  **Validate by File Upload:** Subes tu archivo `index.html` (o el que quieras revisar) directamente desde tu ordenador.
 3.  **Validate by Direct Input:** Copias y pegas el código HTML completo en el recuadro de texto que aparece en la página.
 
 ![alt text](./imagenes/img_html/opciones_validator.png "Imagen html ejemplo")  
