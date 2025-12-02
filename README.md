@@ -977,5 +977,105 @@ Con el tiempo, separar el código hace que el proyecto sea **mucho más fácil d
 
 ![alt text](./imagenes/img_css/utilidad_css.png "Imagen html ejemplo") 
 
+------
+
+### Google Fonts
+### Definición
+
+**Google Fonts** es un servicio de Google que proporciona una **extensa biblioteca de fuentes tipográficas** gratuitas y de código abierto. Esta plataforma está diseñada para facilitar a desarrolladores y diseñadores la integración de tipografías optimizadas en proyectos web (mediante CSS) y también permite la descarga para uso local.
+
+![alt text](./imagenes/img_css/definicion_googlefonts.png "Imagen html ejemplo") 
+
+------
+
+### Localización y Búsqueda
+Puedes acceder a la página principal del servicio aquí:
+* [https://fonts.google.com](https://fonts.google.com)
+
+Lo primero es buscar la fuente que queremos usar, por ejemplo, **Roboto**.
+* Utilice la barra de búsqueda ubicada en la parte superior de la interfaz para introducir el nombre de la familia tipográfica deseada (ejemplo: **Roboto**).
+* La plataforma mostrará inmediatamente los resultados relevantes y le permitirá refinar la búsqueda mediante la opción **"Sort by"** (Ordenar por) o aplicando **"Filters"** (Filtros).
+
+![alt text](./imagenes/img_css/google_fonts.png "Imagen html ejemplo") 
+
+-------
+
+### Adquisición de la Fuente
+
+Para iniciar el proceso de descarga del paquete tipográfico (**Roboto**), proceda a hacer clic en el botón **"Get font"** (Obtener fuente) situado en la esquina superior derecha de la interfaz. Este comando descargará el archivo ZIP correspondiente.
+
+![alt text](./imagenes/img_css/pillar_fuente.png "Imagen html ejemplo") 
+
 
 -----
+
+### Descarga e Integración
+
+Una vez seleccionada la familia tipográfica **(Roboto)**, el usuario dispone de dos opciones principales para su adquisición o uso:
+
+1.  **Get embed code:** Obtiene el código HTML/CSS necesario para la implementación directa de la fuente en un proyecto web.
+2.  **Download all (1):** Permite la descarga de los archivos de fuente para su instalación y uso local (offline) en cualquier aplicación de escritorio.
+
+![alt text](./imagenes/img_css/visualizacion_descarga.png "Imagen html ejemplo") 
+
+-----
+
+### Uso del Enlace HTML
+
+Al elegir la opción **"Get embed code"**, se accederá a la sección donde se proporciona el código de inserción.
+
+* **Formato `<link>`:** El código provisto, el cual se presenta como elementos `<link>`, debe ser copiado y pegado dentro de la sección `<head>` de su documento HTML.
+* **Activación CSS:** Este paso es indispensable para que la fuente quede correctamente enlazada y pueda ser invocada a través de la propiedad `font-family` en su hoja de estilos CSS.
+
+![alt text](./imagenes/img_css/opciones_enlaces.png "Imagen html ejemplo") 
+
+-----
+
+### Uso del Enlace HTML
+### 1. Selección del Método
+Dentro de la interfaz de "Embed code" de Google Fonts, seleccione la opción **`@import`** para generar el código de inserción.
+
+### 2. Copia del Código
+Copie la URL de importación que se muestra en el recuadro.
+
+> **Prioridad:** Esta URL debe ser la **primera declaración absoluta** en su hoja de estilos CSS, antes de cualquier otra regla de estilo, para asegurar la correcta carga de la tipografía.
+
+![alt text](./imagenes/img_css/enlace_css.png "Imagen html ejemplo") 
+
+-------
+### Traslado del Enlace y Estilos al Documento HTML
+#### 1. Enlazado de la Fuente
+El código de enlace (`<link>`) que se obtiene de Google Fonts debe insertarse en el `<head>` del documento HTML. Esto carga la tipografía externa en la página.
+
+#### 2. Creación del Bloque de Estilos
+Directamente debajo del código de enlace, cree la etiqueta **`<style>`** dentro del `<head>` (tal como se ve en el ejemplo). Este bloque contendrá todas sus reglas CSS.
+
+![alt text](./imagenes/img_css/muestra_html.png "Imagen html ejemplo") 
+
+-----
+
+### Traslado del Enlace y Estilos al CSS
+
+
+#### 1. Preparación del Enlace para Estilos
+
+Antes de aplicar cualquier regla, si sus estilos residen en un archivo externo (ej. `style.css`), este debe estar correctamente **enlazado** en el `<head>` del documento HTML mediante la etiqueta `<link>`. Esta acción permite que el navegador lea el contenido de la hoja de estilos.
+
+> *Nota: Si el estilo se realiza dentro de la etiqueta `<style>` en el HTML, esta debe estar presente y correctamente ubicada.*
+
+![alt text](./imagenes/img_css/link_html.png "Imagen html ejemplo") 
+
+--------
+
+### 2. Invocación de la Tipografía
+Si opta por este método de integración, la regla **`@import url(...)`** para cargar la fuente **debe ser la primera declaración absoluta** en el código CSS, precediendo a cualquier otra regla de estilo (como las definiciones de `h1`, `p`, o `.clase`).
+
+Una vez asegurada la lectura del CSS, la fuente se activa utilizando la propiedad **`font-family`** dentro del selector correspondiente (ej. un selector de clase o de etiqueta). El valor de esta propiedad debe ser el nombre exacto de la fuente que fue previamente enlazada o importada (ej. Roboto).
+
+### 3. Definición de Atributos
+
+Complete la regla de estilo con las propiedades **`font-weight`** y **`font-style`** para definir el grosor y la inclinación, respectivamente, del texto. Estos atributos aseguran el uso de las variaciones específicas de la fuente.
+
+![alt text](./imagenes/img_css/muestra_css.png "Imagen html ejemplo") 
+
+-------
