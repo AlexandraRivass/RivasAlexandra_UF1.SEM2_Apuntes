@@ -5,7 +5,7 @@ Git es un **Sistema de Control de Versiones** gratuito y de código abierto.
 
 * **¿Para qué sirve?** Git es como una máquina del tiempo para tu código. Te permite registrar cada cambio que haces en tu proyecto, de forma que puedes volver a versiones anteriores, ver quién hizo qué y trabajar en equipo sin sobrescribir el código de nadie.
 
-## 2.  Instalación de Git
+## 1.  Instalación de Git
 
 Para poder usar los comandos como `git clone` o `git push`, primero debemos instalar Git en tu sistema.
 El primer paso es ir al sitio web oficial de Git.
@@ -13,9 +13,11 @@ El primer paso es ir al sitio web oficial de Git.
 * **Paso a seguir:** Busca **`git-scm.com`** en tu navegador.
 * En la página principal, verás la última versión disponible para descargar, lista para Windows (o el sistema operativo que uses).
 
-![alt text](./imagenes/img_git/paginaweb_git.png "Imagen de loro de ejemplo")  
+![alt text](./imagenes/img_git/paginaweb_git.png "Imagen de loro de ejemplo")
 
-### Iniciar la Descarga (2 Opciones)
+----- 
+
+### 2. Iniciar la Descarga (2 Opciones)
 
 Una vez en la página principal, tienes dos opciones para empezar a descargar el instalador:
 
@@ -24,7 +26,9 @@ Una vez en la página principal, tienes dos opciones para empezar a descargar el
 
 ![alt text](./imagenes/img_git/opciones_instalaciones.png "Imagen de loro de ejemplo")  
 
-### Elegir la Versión 
+------
+
+### 3. Elegir la Versión 
 
 Una vez que has hecho clic en "Install" o "Download", llegarás a la página de descargas.
 
@@ -32,8 +36,9 @@ Una vez que has hecho clic en "Install" o "Download", llegarás a la página de 
 * Busca el enlace **"Click here to download"** o la versión que te convenga (normalmente la `x64 version of Git for Windows`), y haz clic para que el instalador (`.exe`) se guarde en tu ordenador.
 ![alt text](./imagenes/img_git//windows_opciones.png "Imagen de loro de ejemplo") 
 
+-------
 
-### Ejecutar el Instalador 
+### 4. Ejecutar el Instalador 
 
 Una vez que has descargado el archivo `.exe`, ejecútalo.
 
@@ -46,7 +51,7 @@ En la ventana de instalación, verás la barra de progreso mientras el programa 
 
 ----
 
-### 4. Verificar la Instalación 
+### 5. Verificar la Instalación 
 
 Una vez terminada la instalación, es importante verificar que Git esté listo para usarse, y ver la versión instalada.
 
@@ -924,6 +929,8 @@ Puedes acceder y usar esta herramienta en línea a través de:
 * **URL:** `validator.w3.org`
 * **Opciones para validar:** Puedes pegar el código directamente, subir un archivo HTML o pegar la URL de una página ya publicada.
 
+------
+
 #### Opciones de Validación Detalladas
 
 El Validador del W3C te da tres formas para que puedas revisar tu código HTML:
@@ -933,6 +940,8 @@ El Validador del W3C te da tres formas para que puedas revisar tu código HTML:
 3.  **Validate by Direct Input:** Copias y pegas el código HTML completo en el recuadro de texto que aparece en la página.
 
 ![alt text](./imagenes/img_html/opciones_validator.png "Imagen html ejemplo")  
+
+------
 
 ### Comprobación de código
 
@@ -976,6 +985,40 @@ Con el tiempo, separar el código hace que el proyecto sea **mucho más fácil d
 * **CSS (Presentación):** Estos documentos solo deben incluir los aspectos relacionados con el **estilo y diseño** (colores, fuentes, márgenes, formas, etc.).
 
 ![alt text](./imagenes/img_css/utilidad_css.png "Imagen html ejemplo") 
+---------
+### Ubicación del CSS: Asociación de Estilos
+
+La idea clave en el uso de CSS es la **separación de presentación y contenido**. Los estilos se pueden asociar a los elementos HTML de tres maneras principales, dependiendo de dónde se ubiquen las propiedades CSS.
+
+
+#### 1. Estilo Externo (El Documento CSS)
+
+* Se crea un documento externo (ej: `styles.css`) donde se escriben todas las reglas.
+* Es la forma más recomendada, ya que separa completamente el diseño del contenido HTML. Se vincula mediante la etiqueta `<link>` en el `<head>`.
+
+![alt text](./imagenes/img_css/forma_externo.png "Imagen html ejemplo") 
+
+
+#### 2. Estilo Interno (La Cabecera del Documento)
+
+* Los estilos se escriben directamente dentro del documento HTML.
+* Se utiliza la etiqueta `<style>` y esta se coloca dentro de la sección **`<head>`** del HTML (la cabecera del documento).
+
+![alt text](./imagenes/img_css/forma_interno.png "Imagen html ejemplo") 
+
+
+#### 3. Estilo en Línea (La Propia Etiqueta)
+
+* El estilo se aplica directamente a un único elemento HTML.
+*  Se utiliza el atributo **`style`** dentro de la etiqueta HTML de apertura (ej: `<p style="...">`).
+
+![alt text](./imagenes/img_css/forma_inline.png "Imagen html ejemplo") 
+
+
+---
+## Prioridad de CSS
+
+
 
 ------
 
@@ -1068,7 +1111,7 @@ Antes de aplicar cualquier regla, si sus estilos residen en un archivo externo (
 --------
 
 ### 2. Invocación de la Tipografía
-Si opta por este método de integración, la regla **`@import url(...)`** para cargar la fuente **debe ser la primera declaración absoluta** en el código CSS, precediendo a cualquier otra regla de estilo (como las definiciones de `h1`, `p`, o `.clase`).
+
 
 Una vez asegurada la lectura del CSS, la fuente se activa utilizando la propiedad **`font-family`** dentro del selector correspondiente (ej. un selector de clase o de etiqueta). El valor de esta propiedad debe ser el nombre exacto de la fuente que fue previamente enlazada o importada (ej. Roboto).
 
@@ -1079,3 +1122,98 @@ Complete la regla de estilo con las propiedades **`font-weight`** y **`font-styl
 ![alt text](./imagenes/img_css/muestra_css.png "Imagen html ejemplo") 
 
 -------
+
+### Composición (Margenes, bordes, rellenos)
+
+En el desarrollo web, cualquier elemento incluido en un documento HTML dispone de una **estructura tipo caja**. Esta estructura es fundamental para el diseño, ya que define cómo se posicionan y se relacionan los elementos entre sí.
+
+![alt text](./imagenes/img_css/margen.png "Imagen html ejemplo") 
+
+-------
+
+### Padding
+El **padding** es la cantidad de espacio entre el borde y el contenido del elemento. A continuación, se detallan sus propiedades:
+
+### Tabla 1: Propiedades de Padding
+
+| Propiedad | Descripción | Valores |
+| :--- | :--- | :--- |
+| `padding-top` <br> `padding-right` <br> `padding-bottom` <br> `padding-left` | Tamaño del relleno superior, derecho, inferior e izquierdo. | longitud \| porcentaje |
+| `padding` | Tamaño del relleno (shorthand). | longitud \| porcentaje {1,4} |
+
+---
+
+## Lógica de Valores (Shorthand)
+
+Las propiedades operan habitualmente en el sentido de las agujas del reloj: **superior, derecha, inferior e izquierda**. Esta lógica se aplica tanto a `padding` como a `margin`:
+
+| Nº de Valores | Aplicación de Estilo |
+| :--- | :--- |
+| **Un valor** | Se aplica a los **4 lados** por igual. |
+| **Dos valores** | El primero a **arriba y abajo**; el segundo a **derecha e izquierda**. |
+| **Tres valores** | El primero a **arriba**; el segundo a **derecha e izquierda**; el tercero a **abajo**. |
+| **Cuatro valores** | Orden estricto: **arriba, derecha, abajo e izquierda**. |
+
+
+> Recuerda que el uso de porcentajes en el padding se calcula siempre respecto al **ancho** del contenedor padre.
+
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS Externo</title>
+    <link rel="stylesheet"  href="./style.css">
+</head>
+<body>
+   <h3>Propiedad padding - Alexandra </h3>
+   <div class="a" border="1">
+        <p>Contenedor con padding-top: 30px; padding-bottom: 80px; padding: 50px; padding: 40px;</p>
+  </div></br>
+   <div class="b" border="1">
+        <p>Contenedor con padding: 30px 50px 80px 40px</p>
+   </div>
+</body>
+</html>
+```
+
+![alt text](./imagenes/img_css/padding_ejemplo.png "Imagen html ejemplo")
+
+--------
+
+### Margin
+
+El **margin** es el margen externo de un elemento, situado fuera de cualquier borde definido. Se utiliza para crear espacio entre el elemento y sus vecinos.
+
+### Tabla: Propiedades de Margin
+| Propiedad | Descripción | Valores |
+| :--- | :--- | :--- |
+| `margin-top` <br> `margin-right` <br> `margin-bottom` <br> `margin-left` | Tamaño del margen superior, derecho, inferior e izquierdo. | longitud \| porcentaje \| auto |
+| `margin` | Ancho de los márgenes globales. | longitud \| porcentaje \| auto {1,4} |
+
+![alt text](./imagenes/img_css/margin.png "Imagen html ejemplo")
+
+
+-------
+### Border
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS Externo</title>
+    <link rel="stylesheet"  href="./style.css">
+</head>
+<body>
+    <h3>Propiedad border - Alexandra</h3>
+    <p class="a">Párrafo con un borde sólido de color azul</p>
+    <p class="b">Párrafo con borde verde punteado</p>
+    <p class="c">Párrafo con borde violeta a rayas</p>
+    <p class="d">Párrafo con borde mixto</p>
+</body>
+</html>
+```
+
+
+![alt text](./imagenes/img_css/border_ejemplo.png "Imagen html ejemplo")
