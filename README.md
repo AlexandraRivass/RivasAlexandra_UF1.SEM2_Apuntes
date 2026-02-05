@@ -1197,6 +1197,22 @@ El **margin** es el margen externo de un elemento, situado fuera de cualquier bo
 
 -------
 ### Border
+A continuación se detallan las propiedades para dar estilo a los bordes de un elemento:
+
+| Propiedad | Descripción | Valores |
+| :--- | :--- | :--- |
+| `border-top-width` <br> `border-right-width` <br> `border-bottom-width` <br> `border-left-width` | Anchura del borde superior, derecho, inferior o izquierdo. | `thin` \| `medium` \| `thick` \| longitud |
+| `border-width` | Anchura del borde (reducida). | `thin` \| `medium` \| `thick` \| longitud {1,4} |
+| `border-top-color` <br> `border-right-color` <br> `border-bottom-color` <br> `border-left-color` | Color del borde superior, derecho, inferior e izquierdo. | color \| `transparent` |
+| `border-color` | Color del borde (reducida). | color \| `transparent` {1,4} |
+| `border-top-style` <br> `border-right-style` <br> `border-bottom-style` <br> `border-left-style` | Estilo del borde superior, derecho, inferior e izquierdo. | `none` \| `hidden` \| `dotted` \| `dashed` \| `solid` \| `double` \| `groove` \| `ridge` \| `inset` \| `outset` |
+| `border-style` | Estilo del borde (reducida). | `none` \| `hidden` \| `dotted` \| `dashed` \| `solid` \| `double` \| `groove` \| `ridge` \| `inset` \| `outset` {1,4} |
+| `border-top` <br> `border-right` <br> `border-bottom` <br> `border-left` | Ancho, estilo y color para el borde superior, derecho, inferior o izquierdo. | `border-width` \| `border-style` \| `border-color` |
+| `border` | Ancho, estilo y color para los bordes (reducida). | `border-width` \| `border-style` \| `border-color` |
+| `border-radius` | Curvatura del borde. | longitud \| porcentaje {1,4} |
+
+---
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -1215,5 +1231,121 @@ El **margin** es el margen externo de un elemento, situado fuera de cualquier bo
 </html>
 ```
 
-
 ![alt text](./imagenes/img_css/border_ejemplo.png "Imagen html ejemplo")
+
+-------
+## Composición - Diseño Responsive
+El **diseño responsive** es un formato de programación y diseño que permite ajustar un sitio web automáticamente al tamaño y disposición de los dispositivos de sus usuarios. 
+
+![alt text](./imagenes/img_css/responsive_definicion.png "Imagen html ejemplo")
+
+--------
+
+## ¿Cómo funciona?
+
+Los sitios web responsive cambian dinámicamente para ofrecer la mejor experiencia posible a los visitantes, adaptándose según el dispositivo desde el que accedan:
+
+* **Teléfonos inteligentes (Smartphones):** Reorganiza el contenido en columnas verticales y optimiza menús para pantallas táctiles.
+* **Tabletas:** Ajusta márgenes y tamaños de fuente para un equilibrio entre movilidad y lectura.
+* **Computadoras de escritorio (Desktop):** Aprovecha el espacio horizontal para mostrar diseños más complejos y multicolumna.
+
+![alt text](./imagenes/img_css/tamaños_responsive.png "Imagen html ejemplo")
+
+----------------
+
+ # Media Queries y Diseño Responsive
+
+Como ya adelantábamos, las **Media Queries** son las herramientas principales que se utilizan para aplicar diferentes estilos a cada tipo de dispositivo. 
+
+
+
+## Concepto y Utilidad
+
+Surgen de la necesidad de crear **puntos de ruptura o *breakpoints*** en los estilos CSS que vienen predeterminados. Es decir, forman parte de un módulo de CSS que sirve para **detectar el tipo de dispositivo** desde el que se está accediendo para que el contenido pueda adaptarse en función de las condiciones que previamente hayas establecido.
+
+---
+
+## Formas de Implementación
+
+Existen dos formas principales de implementar las Media Queries:
+
+1.  **Atributo HTML:** Podemos utilizar código HTML con el atributo `media` de la etiqueta `<link>` para especificar las condiciones que deben cumplirse.
+2.  **Archivo CSS (Sistema Recomendado):** Incluir todas las condiciones dentro de un archivo CSS. Este método permite centralizar el diseño y mejorar el mantenimiento del código.
+
+---
+
+### Media Queries: Adaptación por Tamaños
+Las Media Queries permiten que el diseño de la web cambie según las dimensiones de la pantalla del dispositivo.
+Este es la estructura del html de los siguientes ejemplos:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Responsive</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Diseño Responsive - Alexandra</h1>
+    </header>
+
+    <main class="contenedor">
+        <div class="caja">Caja 1</div>
+        <div class="caja">Caja 2</div>
+        <div class="caja">Caja 3</div>
+    </main>
+
+</body>
+</html>
+```
+
+### Pantallas grandes (Escritorio)
+Es el diseño base o por defecto que se ve en monitores de ordenador.
+* Estilo: En el ejemplo, se usa un fondo azul con texto blanco.
+
+![alt text](./imagenes/img_css/ejemplo_responsive.png "Imagen html ejemplo")
+
+----
+
+### Pantallas medianas (Hasta 768 píxeles)
+Se utiliza para aplicar cambios cuando se visualiza el contenido desde una tableta.
+
+**Truco**: Para comprobar el tamaño exacto de la pantalla y ver cómo reacciona el diseño, se puede abrir la consola de herramientas de desarrollador en cualquier navegador pulsando la combinación de teclas **fn + f12**. Desde ahí se puede simular el ancho en píxeles de diferentes dispositivos.
+
+```css
+@media (min-width: 768px) {
+    .contenedor {
+        flex-direction: row;
+    }
+
+    .caja {
+        flex: 2;
+        background-color: #50b64c;
+    }
+}
+```
+
+![alt text](./imagenes/img_css/pequeño_responsive.png "Imagen html ejemplo")
+
+
+-----
+
+### Para pantallas pequeñas (Menor de 320 píxeles)
+Se utiliza para aplicar estilos cuando el ancho es reducido, como en teléfonos antiguos o de pequeño formato.
+
+**Truco**: Para comprobar el tamaño exacto de la pantalla y ver cómo reacciona el diseño, se puede abrir la consola de herramientas de desarrollador en cualquier navegador pulsando la combinación de teclas **fn + f12**. Desde ahí se puede simular el ancho en píxeles de diferentes dispositivos.
+```css
+@media (max-width: 428px) {
+    .caja {
+        background-color: #ee402d;
+        font-size: 14px;
+    }
+}
+```
+
+![alt text](./imagenes/img_css/pequeño_responsive1.png "Imagen html ejemplo")
+

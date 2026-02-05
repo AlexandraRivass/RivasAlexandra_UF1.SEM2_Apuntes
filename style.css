@@ -1,11 +1,50 @@
+/* ===== Estilos base (móviles primero) ===== */
 
-.a { border: 4px solid blue; }
-.b { border: 6px dotted green; }
-.c { border: 3px dashed purple; }
-.d { 
-     border-top: 3px double orange;
-     border-right: 3px double brown;
-     border-bottom: 3px double brown;
-     border-left: 3px double brown;
- }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.caja {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ===== Para pantallas menores de 320px ===== */
+
+@media (max-width: 428px) {
+    .caja {
+        background-color: #ee402d;
+        font-size: 14px;
+    }
+}
+
+/* ===== Para pantallas mayores de 768px ===== */
+
+@media (min-width: 768px) {
+    .contenedor {
+        flex-direction: row;
+    }
+
+    .caja {
+        flex: 2;
+        background-color: #50b64c;
+    }
+}
