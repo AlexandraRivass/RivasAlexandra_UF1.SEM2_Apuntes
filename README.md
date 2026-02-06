@@ -1017,11 +1017,100 @@ La idea clave en el uso de CSS es la **separación de presentación y contenido*
 
 ---
 ## Prioridad de CSS
+Cuando un mismo elemento HTML recibe varias instrucciones de diseño diferentes, el navegador sigue un orden de relevancia para decidir cuál aplicar.
 
+1. **Prioridad baja (Estilo externo)**: Es el primer nivel que se comprueba. Si no existen otras definiciones, se aplican las del archivo .css vinculado.
+2. **Prioridad media (Estilo interno)**: Las reglas escritas en el bloque `<head>` del documento tienen preferencia sobre las del archivo externo en caso de que ambas entren en conflicto.
+3. **Prioridad alta (Estilo inline)**: Cualquier definición escrita directamente dentro de la etiqueta HTML ignorará las anteriores y será la que prevalezca.
 
+* **Regla general de orden**: Además de la ubicación, el orden cronológico importa. Las declaraciones que aparecen más abajo en el código suelen tener prioridad sobre las situadas arriba.
+
+--------
+### Tabla de Especificidad y Jerarquía CSS
+
+En CSS, cuando varias reglas afectan al mismo elemento, el navegador utiliza un sistema de puntuación para determinar qué estilo prevalece.
+
+| Elemento / Ubicación | Especificidad | Descripción |
+| :--- | :--- | :--- |
+| **!important** | Máxima | Sobrescribe cualquier otra declaración, sin importar la puntuación. |
+| **Estilo Inline** | 1000 | Definido dentro del atributo `style` de la etiqueta HTML. |
+| **Identificadores (ID)** | 100 | Selectores que usan el símbolo `#` (ejemplo: `#header`). |
+| **Clases y Atributos** | 10 | Incluye `.clase`, `[type="text"]` y pseudoclases como `:hover`. |
+| **Elementos** | 1 | Etiquetas directas como `h1`, `p` o `div`. |
+| **Selector Universal** | 0 | El símbolo `*` afecta a todo pero no añade puntuación. |
 
 ------
 
+### Caso Práctico: Resolución de Conflictos en CSS
+
+Imagina que tienes un botón de suscripción y aplicas varios estilos a la vez. ¿De qué color se mostrará finalmente?
+
+#### Estructura HTML
+```html
+<div id="sidebar" class="menu">
+    <button id="btn-submit" class="boton-primario" style="background-color: purple;">
+        Suscribirse
+    </button>
+</div>
+```
+```css
+button { background-color: blue; } 
+
+.boton-primario { background-color: green; } 
+
+#btn-submit { background-color: orange; } 
+
+button { background-color: red !important; } 
+```
+
+### Resultado Final:
+
+**El botón se mostrará de color: ROJO.**
+
+**Explicación**: Aunque el estilo inline (púrpura), la declaración `!important` en la regla del color rojo anula cualquier jerarquía de puntos y obliga al navegador a mostrar ese color por encima de todos los demás.
+
+![alt text](./imagenes/img_css/ejemplo_prioridad.png "Imagen html ejemplo") 
+
+
+------
+### Apuntes: Sintaxis y Tipos de Selectores CSS
+
+#### 1. Estructura de una Regla (Sintaxis)
+Una hoja de estilos es un conjunto de reglas que definen la estética final del documento. Cada regla se compone de:
+* **Selector**: Nos sirve para definir a qué elemento o elementos queremos aplicar las instrucciones.
+* **Declaración**: Formada por una **propiedad** y su **valor** asociado (ejemplo: `color: red;`).
+
+---
+
+#### Tipos de Selectores (De Básicos a Avanzados)
+Existen diferentes formas de seleccionar elementos en el HTML para darles estilo.
+
+#### Selectores Básicos:
+1.  **Selector de elementos**: Afecta a todas las etiquetas de un tipo (ejemplo: `p`, `h1`).
+2.  **Selector de ID**: Selecciona un elemento único mediante `#nombreID`.
+3.  **Selector de clase**: Selecciona elementos que comparten una misma `.clase`.
+
+#### Selectores Avanzados (Ejemplos):
+* **Selector universal (*)**: Aplica a todos los elementos del documento.
+* **Pseudoclases**: Estilos basados en el estado del elemento (ejemplo: `:hover` al pasar el ratón).
+* **Selectores de hijos/descendientes**: Para seleccionar elementos dentro de otros.
+-------
+# Fundamentos de CSS: Selectores Básicos (Parte 3 de 3)
+
+## Uso del Selector de Clase
+
+Este selector se utiliza para aplicar estilos a cualquier elemento que contenga un atributo `class` con un nombre específico. Es ideal para reutilizar estilos en diferentes partes de un sitio web.
+
+### Ejemplo de sintaxis:
+
+```css
+.example {
+    property: value;
+    property2: value2;
+}
+```
+
+-------
 ### Google Fonts
 ### Definición
 
@@ -1233,6 +1322,338 @@ A continuación se detallan las propiedades para dar estilo a los bordes de un e
 
 ![alt text](./imagenes/img_css/border_ejemplo.png "Imagen html ejemplo")
 
+-------
+
+## Reglas de posicionamiento
+
+La propiedad **`display`** en CSS es la herramienta que nos permite controlar la **ubicación y el comportamiento visual** de un elemento HTML dentro de la pantalla. Es, en esencia, lo que determina cómo se estructura nuestra página web.
+
+Esta propiedad funciona bajo la lógica del **Modelo de Caja (Box Model)**.
+
+
+
+---
+
+### ¿Qué es la propiedad display en CSS?
+
+Según las reglas de CSS, debemos visualizar cada elemento HTML como si fuera un **bloque o caja invisible** que posee las siguientes características:
+
+* **Contenido:** El texto o imagen real.
+* **Padding (Relleno):** El espacio entre el contenido y el borde.
+* **Borde:** La línea que rodea al padding y al contenido.
+* **Margen:** El espacio exterior que separa a esta caja de otras cajas.
+![alt text](./imagenes/img_css/definicion_display.png "Imagen html ejemplo")
+
+> **¿Cómo se conectan?**
+> La forma en que estas características (margen, borde, relleno) se representan y afectan al resto de la página depende directamente del valor que asignemos a la propiedad `display`.
+
+---------
+
+
+### Display: Block en CSS
+
+El valor `block` en la propiedad `display` de CSS representa un elemento como un bloque y es uno de los tipos de display CSS.
+
+Una forma de entender esto es pensar en los bloques como elementos que van de lado a lado de la pantalla, como sería un párrafo. Cuando usamos este valor, el elemento empezará en una nueva línea al lado izquierdo de nuestro viewport y ocupará hacia la derecha, en el eje horizontal, tanto espacio como sea posible.
+
+Este bloque seguirá creciendo hacia abajo cuanto sea necesario y siempre intentará ocupar el ancho máximo de su contenedor, que en la mayoría de casos es el mismo viewport (espacio visible de la página web en pantalla).
+
+### Comportamiento
+
+- El elemento comienza en una nueva línea.
+- Ocupa todo el ancho disponible del contenedor.
+- Crece verticalmente según su contenido.
+- Intenta ocupar el ancho máximo disponible.
+- Normalmente su contenedor es el viewport.
+
+### Ejemplo
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo display block</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Display: block - Alexandra</h1>
+  <div class="bloque">Bloque 1</div>
+  <div class="bloque">Bloque 2</div>
+  <div class="bloque">Bloque 3</div>
+
+</body>
+</html>
+```
+![alt text](./imagenes/img_css/display_ejemplo.png "Imagen html ejemplo")
+
+-------
+## Display: Flex en CSS
+
+`display: flex` es un valor de la propiedad `display` que permite utilizar el modelo de caja flexible conocido como **Flexbox**. Este modelo facilita la organización, alineación y distribución de los elementos dentro de un contenedor.
+
+Cuando aplicamos `display: flex` a un elemento, este se convierte en un contenedor flexible y organiza automáticamente sus elementos hijos en una fila o columna, ajustándolos para que encajen correctamente incluso si tienen tamaños diferentes.
+
+Flexbox permite alinear elementos fácilmente y distribuir el espacio entre ellos, lo que lo hace especialmente útil para crear diseños responsivos que se adapten a distintos tamaños de pantalla.
+
+---
+
+## ¿Para qué sirve display: flex?
+
+- Alinear elementos horizontal o verticalmente usando propiedades como `justify-content` y `align-items`.
+- Crear diseños responsivos sin cálculos complejos de tamaños o márgenes.
+- Distribuir el espacio de forma uniforme entre elementos.
+- Centrar contenido fácilmente dentro de contenedores o botones.
+- Organizar elementos como menús, tarjetas o barras de navegación.
+
+### Ejemplo
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo display flex</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h3>Display: flex - Alexandra</h3>
+    <div class="container">
+        <div class="caja">1</div>
+        <div class="caja">2</div>
+        <div class="caja">3</div>
+    </div>
+
+</body>
+</html>
+```
+![alt text](./imagenes/img_css//displayflex_ejemplo.png "Imagen html ejemplo")
+
+-------
+
+## Posicionamiento: Overflow en CSS
+
+La propiedad `overflow` en CSS permite controlar qué sucede cuando el contenido de un elemento sobrepasa los límites de su contenedor.
+
+El contenedor puede ser otro elemento, el `body` o el propio viewport.
+
+Se utiliza normalmente para decidir si el contenido que sobresale debe mostrarse, ocultarse o generar barras de desplazamiento.
+
+### Uso común
+
+La propiedad `overflow` es útil cuando un elemento hijo supera el tamaño del elemento padre. Por ejemplo, en una barra de progreso, permite ocultar las partes del contenido que salen fuera del contenedor.
+
+### Valores más comunes
+
+- `visible` → El contenido que sobresale se muestra (valor por defecto).
+- `hidden` → El contenido que sobresale se oculta.
+- `scroll` → Siempre aparecen barras de desplazamiento.
+- `auto` → Las barras aparecen solo si son necesarias.
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo overflow</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="caja-ejemplo">
+    <h3>Overflow:- Alexandra</h3>
+    <p>Este es un texto muy largo esto es un texto muy largo esto es un texto muuy largo esto es un text muy largo, esto es un text muy largo esto es un texto muy largo </p>
+</div>
+</body>
+</html>
+```
+
+![alt text](./imagenes/img_css/overflow_ejemplo.png "Imagen html ejemplo")
+
+---------
+## Posicionamiento:  Text-overflow en CSS
+
+La propiedad `text-overflow` en CSS controla cómo se muestra el texto cuando se desborda del contenedor y no puede mostrarse completamente.
+
+Permite recortar el texto, mostrar puntos suspensivos (`…`) o indicar visualmente que el contenido ha sido cortado.
+
+Esta propiedad solo funciona cuando el texto no puede ocupar más espacio dentro del elemento.
+
+## Valores de text-overflow
+
+| Valor     | Descripción                                                                 | Manifestación |
+|------------|------------------------------------------------------------------------------|---------------|
+| `clip`     | Valor por defecto. El texto se corta sin indicar que falta contenido.      | El texto se recorta sin aviso visual. |
+| `ellipsis` | Muestra puntos suspensivos (`…`) cuando el texto es recortado.             | Aparecen puntos suspensivos al final del texto. |
+| `string`   | Permite mostrar una cadena personalizada (sin soporte actual en navegadores). | No soportado actualmente. |
+| `initial`  | Establece la propiedad en su valor por defecto.                             | Comportamiento por defecto. |
+| `inherit`  | Hereda el valor del elemento padre.                                         | Usa el valor del elemento padre. |
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo text-overflow</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="caja">
+    <h1>Text-overflow - Alexandra</h1>
+    <p>Este es un texto muy largo esto es un texto muy largo esto es un texto muuy largo esto es un text muy largo, esto es un text muy largo esto es un texto muy largo </p>
+  </div>
+
+</body>
+</html>
+
+```
+
+![alt text](./imagenes/img_css/textoverflow_ejemplo.png "Imagen html ejemplo")
+
+-------
+## Position en CSS
+
+La propiedad `position` en CSS define cómo se posiciona un elemento dentro del documento y cómo se relaciona con otros elementos.
+
+Permite controlar la ubicación final de un elemento usando las propiedades:
+
+- `top`
+- `right`
+- `bottom`
+- `left`
+
+Dependiendo del valor utilizado, el elemento puede mantenerse en el flujo normal del documento o salir de él.
+
+![alt text](./imagenes/img_css/position_definicion.png "Imagen html ejemplo")
+
+---
+
+## Valores de position
+
+| Valor      | Descripción |
+|-------------|-------------|
+| `static`   | Valor por defecto. El elemento sigue el flujo normal del documento. |
+| `relative` | Se mueve respecto a su posición original sin afectar a otros elementos. |
+| `absolute` | Sale del flujo normal y se posiciona respecto a su contenedor posicionado más cercano. |
+| `fixed`    | Se posiciona respecto al viewport y permanece fijo al hacer scroll. |
+| `sticky`   | Se comporta como relative hasta alcanzar un punto de desplazamiento y luego queda fijo. |
+
+### Ejemplo de `static`:
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo position static</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h3>Position: static - Alexandra</h3>
+  <div class="caja">Caja 1</div>
+  <div class="caja static">Caja 2 (static)</div>
+  <div class="caja">Caja 3</div>
+
+</body>
+</html>
+```
+![alt text](./imagenes/img_css/static_ejemplo.png "Imagen html ejemplo")
+
+-----
+
+### Ejemplo de `relative`:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo position static</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<h3>Position: static - Alexandra</h3>
+  <div class="caja">Caja 1</div>
+  <div class="caja relative">Caja 2 (relative)</div>
+  <div class="caja">Caja 3</div>
+
+</body>
+</html>
+```
+![alt text](./imagenes/img_css/realtive_ejemplo.png "Imagen html ejemplo")
+
+------
+### Ejemplo de `relative`:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo position absolute</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h3>Position: absolute - Alexandra</h3>
+  <div class="contenedor">
+    <div class="caja absolute">absolute</div>
+  </div>
+
+  <div class="caja">Caja normal</div>
+
+</body>
+</html>
+```
+![alt text](./imagenes/img_css/absolute_ejemplo.png "Imagen html ejemplo")
+
+
+------
+### Ejemplo de `fixed`:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo position fixed</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<h3>Position: fixed - Alexandra</h3>
+  <div class="caja fixed">fixed</div>
+
+  <p>Seguira fixado aunq sigamos bajando, esto es solo un ejemplo</p>
+
+</body>
+</html>
+```
+![alt text](./imagenes/img_css/fixed_ejemplo.png "Imagen html ejemplo")
+
+------
+### Ejemplo de `sticky`:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo position absolute</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h3>Position: sitcky - Alexandra</h3>
+  <div class="contenedor">
+    <div class="sticky">sticky</div>
+    <p>Contenido largo para permitir scroll...</p>
+    <p>Más contenido...</p>
+    <p>Más contenido...</p>
+    <p>Más contenido...</p>
+    <p>Más contenido...</p>
+    <p>Más contenido...</p>
+    <p>Más contenido...</p>
+    <p>Más contenido...</p>
+    <p>Más contenido...</p>
+  </div>
+
+</body>
+</html>
+```
+![alt text](./imagenes/img_css/sitcky_ejemplo.png "Imagen html ejemplo")
 -------
 ## Composición - Diseño Responsive
 El **diseño responsive** es un formato de programación y diseño que permite ajustar un sitio web automáticamente al tamaño y disposición de los dispositivos de sus usuarios. 

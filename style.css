@@ -1,50 +1,20 @@
-/* ===== Estilos base (móviles primero) ===== */
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-}
-
 .contenedor {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+  height: 300px;
+  overflow-y: scroll;
+  border: 3px solid black;
+  padding: 10px;
 }
 
-.caja {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
+.sticky {
+
+  position: sticky;
+  
+  top: 0;
+  background-color: yellow;
+  padding: 10px;
+  border: 2px solid orange;
+  font-weight: bold;
 }
 
-/* ===== Para pantallas menores de 320px ===== */
-
-@media (max-width: 428px) {
-    .caja {
-        background-color: #ee402d;
-        font-size: 14px;
-    }
-}
-
-/* ===== Para pantallas mayores de 768px ===== */
-
-@media (min-width: 768px) {
-    .contenedor {
-        flex-direction: row;
-    }
-
-    .caja {
-        flex: 2;
-        background-color: #50b64c;
-    }
-}
+/* Sticky se comporta como relative hasta que alcanza el
+   valor de top, momento en que queda fijo dentro del contenedor. */
