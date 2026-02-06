@@ -1053,6 +1053,7 @@ Imagina que tienes un botón de suscripción y aplicas varios estilos a la vez. 
     </button>
 </div>
 ```
+
 ```css
 button { background-color: blue; } 
 
@@ -1073,43 +1074,174 @@ button { background-color: red !important; }
 
 
 ------
-### Apuntes: Sintaxis y Tipos de Selectores CSS
+### Sintaxis y Tipos de Selectores CSS
 
 #### 1. Estructura de una Regla (Sintaxis)
 Una hoja de estilos es un conjunto de reglas que definen la estética final del documento. Cada regla se compone de:
 * **Selector**: Nos sirve para definir a qué elemento o elementos queremos aplicar las instrucciones.
 * **Declaración**: Formada por una **propiedad** y su **valor** asociado (ejemplo: `color: red;`).
 
+-----
+
+## Tipos de Selectores 
+
+Para aplicar estilos, primero debemos "apuntar" a los elementos correctos. CSS nos ofrece diversas formas de hacerlo, desde lo más general hasta lo más específico.
+
+-----
+
+### **1. Selectores Básicos**
+
+#### **3.1. Selector Universal (`*`)**
+Es el "comodín" de CSS. Selecciona **absolutamente todos** los elementos del documento.
+* **Sintaxis:** `* { propiedad: valor; }`
+* **Uso común:** Es vital para hacer un "reset" de estilos, como eliminar márgenes y rellenos que el navegador pone por defecto para empezar a maquetar desde cero.
+* **Ejemplo:** `* { color: grey; }` (Toda la web tendrá texto gris).
+
+#### **3.2. Selector de Etiqueta**
+Apunta directamente al nombre de la etiqueta HTML.
+* **Sintaxis:** `etiqueta { propiedad: valor; }`
+* **Ejemplo:** `p { color: green; }` (Todos los párrafos serán verdes).
+
+#### **3.3. Selector de Clase (`.`)**
+Se usa para dar estilo a varios elementos que comparten una misma categoría. Un mismo elemento puede tener **múltiples clases** separadas por espacios.
+* **Sintaxis:** `.nombre-clase { propiedad: valor; }`
+* **Prioridad:** Si un elemento tiene dos clases (ej. `<div class="rojo azul">`) y ambas definen la misma propiedad, ganará la **última clase declarada** en el código.
+* **Ejemplo:** `.blend { color: red; }`
+
+#### **3.4. Selector de Identificador (`#`)**
+Selecciona un elemento único mediante su atributo `id`. **Recuerda:** Un ID no debe repetirse en la misma página.
+* **Sintaxis:** `#nombre-id { propiedad: valor; }`
+* **Ejemplo:** `#cent { color: blue; }`
+
 ---
 
-#### Tipos de Selectores (De Básicos a Avanzados)
-Existen diferentes formas de seleccionar elementos en el HTML para darles estilo.
+### **2. Selectores de Relación y Combinación**
 
-#### Selectores Básicos:
-1.  **Selector de elementos**: Afecta a todas las etiquetas de un tipo (ejemplo: `p`, `h1`).
-2.  **Selector de ID**: Selecciona un elemento único mediante `#nombreID`.
-3.  **Selector de clase**: Selecciona elementos que comparten una misma `.clase`.
+#### **3.5. Selector Descendiente**
+Afecta a un elemento que está dentro de otro, sin importar qué tan profundo esté en el "árbol" de etiquetas.
+* **Sintaxis:** `selector-padre selector-hijo { ... }`
+* **Ejemplo:** `div p { color: black; }` (Párrafos dentro de cualquier `div`).
 
-#### Selectores Avanzados (Ejemplos):
-* **Selector universal (*)**: Aplica a todos los elementos del documento.
-* **Pseudoclases**: Estilos basados en el estado del elemento (ejemplo: `:hover` al pasar el ratón).
-* **Selectores de hijos/descendientes**: Para seleccionar elementos dentro de otros.
--------
-# Fundamentos de CSS: Selectores Básicos (Parte 3 de 3)
+#### **3.6. Combinación de Selectores**
+Se usa para aplicar el **mismo estilo a varios selectores** distintos a la vez, ahorrando código.
+* **Sintaxis:** `selector1, selector2 { ... }` (Separados por coma).
+* **Ejemplo:** `div, p { color: orange; }` (Tanto los divs como los párrafos serán naranjas).
 
-## Uso del Selector de Clase
+#### **3.7. Selector de Hijos Directos (`>`)**
+A diferencia del descendiente, este solo afecta a los elementos que están **justo un nivel por debajo** del padre.
+* **Sintaxis:** `padre > hijo { ... }`
+* **Ejemplo:** `div > p { color: white; }`
 
-Este selector se utiliza para aplicar estilos a cualquier elemento que contenga un atributo `class` con un nombre específico. Es ideal para reutilizar estilos en diferentes partes de un sitio web.
 
-### Ejemplo de sintaxis:
+> * **Hijos:** Solo los que están inmediatamente debajo.
+> * **Descendientes:** Todos los que estén dentro, incluyendo "nietos" o "bisnietos".
 
-```css
-.example {
-    property: value;
-    property2: value2;
-}
+
+
+#### **3.8. Selector Adyacente (`+`)**
+Selecciona al "hermano" que sigue inmediatamente a otro elemento, siempre que compartan el mismo padre.
+* **Sintaxis:** `elemento1 + elemento2 { ... }`
+* **Ejemplo:** `div + p { color: black; }` (Afecta al párrafo que aparece justo después de un div).
+
+### Resumen de Selectores Básicos CSS
+
+| Selector           | Descripción                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| `*`               | Selecciona todos los elementos del DOM                                      |
+| `etiqueta`        | Selecciona todas las etiquetas indicadas                                     |
+| `.class`          | Selección de los elementos con la clase `.class`                             |
+| `#id`             | Selección del elemento con id `#id`                                         |
+| `sel1 sel2`       | Selección de los selectores `sel2` que se encuentren dentro de `sel1` (pueden ser hijos de hijos) |
+| `.class1.class2`  | Selección de los elementos con las dos clases: `class1` y `class2`          |
+| `sel1.class1`     | Selección de todos los selectores `sel1` con clase `class1`                 |
+| `sel1, sel2`      | Selección de todos los selectores separados por comas                        |
+| `sel1 > sel2`     | Selección de los selectores `sel2` cuando son **hijos directos** de `sel1` |
+| `sel1 + sel2`     | Selección del selector `sel2` cuando es **hermano inmediato** de `sel1` (su elemento padre es el mismo) |
+
+
+
+```html
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <title>Selectores</title> 
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <h1>Ejemplo de Selectores - Alexandra</h1>
+    <h1 class="clase">Texto de color rojo</h1>
+    <p id="ident">Texto de color verde</p>
+  <h2>Selector descendiente</h2>
+  <p>
+      <a href="#">Enlace</a><br>
+      <span>
+            <a href="#">Enlace</a>
+      </span>
+  </p>
+  <h3>Texto h3</h3>
+  <div>
+    <span>Texto con span</span>
+    <small> Texto con small</small>
+    <span>Texto con span</span>
+    <small> Texto con small</small>
+    <small> Texto con small</small>
+  </div>
+</body> 
+</html>
 ```
 
+![alt text](./imagenes/img_css/selectore_ejemplo.png "Imagen html ejemplo")
+
+## Pseudoclases
+
+Las pseudoclases se utilizan para definir estilos basados en los diversos estados de los elementos, en lugar de aplicarse al elemento de forma estática. Su uso más común se encuentra en el control de los estados de los enlaces:
+
+* **:link** Es el estado normal y por defecto de los enlaces cuando se ven por primera vez.
+* **:visited:** Se aplica a los enlaces que el usuario ya ha visitado con el navegador que está utilizando.
+* **:focus:** Se activa cuando el elemento (un enlace o un campo de formulario) tiene el cursor en su interior.
+* **:hover:** Se aplica cuando el usuario sitúa el puntero del ratón sobre el elemento.
+
+> **Ejemplo de uso de pseudoclases:**
+> a:hover { color: red; }
+> input:focus { border: 2px solid blue; }
+
+### Pseudoelementos
+
+A diferencia de las pseudoclases, los pseudoelementos **no afectan al elemento completo**, sino que permiten aplicar estilos a **una parte específica** del mismo. Esto es útil cuando quieres destacar o modificar solo un fragmento del contenido de un elemento.
+
+Uno de los casos más comunes es **dar formato a la primera línea de un párrafo** sin afectar el resto del texto.
+
+> **Ejemplo de uso de `::first-line`:**
+> ```css
+> p::first-line {
+>   font-weight: bold;
+>   color: blue;
+> }
+> ```
+> Este código hará que **solo la primera línea de cada párrafo** aparezca en azul y en negrita, mientras que el resto del texto mantiene su estilo original.
+
+#### Nota sobre la sintaxis
+
+Dependiendo del navegador y su versión, a veces se encuentra el uso de un solo punto (`:`) en lugar de los dos (`::`). Sin embargo, en los navegadores modernos que soportan **CSS3**, la convención correcta es usar **dos puntos (**, ya que ayuda a diferenciar claramente los pseudoelementos de las pseudoclases.
+
+
+--------
+## Comentarios en CSS
+
+### Definición
+
+Los comentarios en CSS se utilizan para **anotar, explicar o documentar el código** sin que afecten a la visualización o comportamiento de la página.
+
+- No son interpretados por el navegador.
+- Son útiles para organizar el código, hacer recordatorios o explicar secciones.
+
+### Sintaxis
+
+Los comentarios en CSS se escriben entre `/*` y `*/`.
+
+```css
+/* Esto es un comentario en CSS */
+```
 -------
 ### Google Fonts
 ### Definición
@@ -1324,7 +1456,7 @@ A continuación se detallan las propiedades para dar estilo a los bordes de un e
 
 -------
 
-## Reglas de posicionamiento
+# Reglas de posicionamiento
 
 La propiedad **`display`** en CSS es la herramienta que nos permite controlar la **ubicación y el comportamiento visual** de un elemento HTML dentro de la pantalla. Es, en esencia, lo que determina cómo se estructura nuestra página web.
 
